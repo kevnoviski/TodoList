@@ -39,6 +39,7 @@ namespace TodoList
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TodoList", Version = "v1" });
             });
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddScoped<ITodoItemRepo,SqlTodoListRepo>();
         }
 

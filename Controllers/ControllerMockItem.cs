@@ -4,7 +4,7 @@ using TodoList.Models;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
 using Microsoft.AspNetCore.JsonPatch;
-
+using TodoList.Dtos;
 
 namespace TodoList.Controllers
 {
@@ -20,7 +20,7 @@ namespace TodoList.Controllers
         }
         //POST api/todolist/
         [HttpPost]
-        public ActionResult<TodoItem> CreateTodoItem(TodoItem todoItem)
+        public ActionResult<TodoItem> CreateTodoItem(TodoItemCreateDto todoItem)
         {
             throw new System.NotImplementedException();
         }
@@ -46,9 +46,14 @@ namespace TodoList.Controllers
             throw new System.NotImplementedException();
         }
 
+        public ActionResult PartialCommandUpdate(int id, JsonPatchDocument<TodoItemUpdateDto> pathDoc)
+        {
+            throw new System.NotImplementedException();
+        }
+
         //PUT api/todolist/{id}
         [HttpPut("{id}")]
-        public ActionResult UpdateTodoItem(int id, TodoItem todoItem)
+        public ActionResult UpdateTodoItem(int id, TodoItemUpdateDto todoItem)
         {
             throw new System.NotImplementedException();
         }
