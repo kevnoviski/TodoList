@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics;
 using AutoMapper;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -49,6 +50,7 @@ namespace TodoList.Controllers
                 The content value to format in the entity body. [ todoItemReadDto ]
 
             */
+            Debug.Print(todoItemModel.ToString());
             return CreatedAtRoute(nameof(GetTodoItemById), new {Id = todoItemReadDto.Id},todoItemReadDto);
         }
 
@@ -135,7 +137,7 @@ namespace TodoList.Controllers
         }
 
         //PUT api/todolist/{id}
-        [HttpPut("{id}")]
+        [HttpPut("{id:int}")]
         public ActionResult UpdateTodoItem(int id, TodoItemUpdateDto todoItemUpdateDto)
         {
             // gets the object in the oficial model from database
